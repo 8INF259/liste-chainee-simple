@@ -74,7 +74,7 @@ void Liste<Element>::afficher() const {
 }
 
 template <typename Element>
-bool ListeChainee<Element>::trouver(const Element &valeur) {
+bool Liste<Element>::trouver(const Element &valeur) {
   Noeud<int> *noeudActuel = tete;
 
   while (noeudActuel != nullptr && noeudActuel->cle != valeur) {

@@ -6,7 +6,7 @@ template <typename Element> class Liste {
   public :
     Noeud<Element> *tete;                       // position du premier élément
     Noeud<Element> *fin;                        // position du dernier élément
-    Noeud<Element> *courant;                    // position de l'élément courant
+    // Noeud<Element> *courant;                    // position de l'élément courant
 
     Liste();                                    // Constructeur
     ~Liste();                                   // Destructeur
@@ -39,7 +39,7 @@ Liste<Element>::~Liste() {
 	}
 }
 
-// insère un élément à la position courante
+// insère un élément à la tete
 template <typename Element>
 void Liste<Element>::inserer(const Element &valeurCle) {
   Noeud<int> *newNoeud = new Noeud<Element>(valeurCle);
@@ -48,7 +48,7 @@ void Liste<Element>::inserer(const Element &valeurCle) {
     fin = newNoeud;
   }
   tete = newNoeud;
-  courant = tete;
+  // courant = tete;
 }
 
 // insère un élément à la fin de la liste

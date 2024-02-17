@@ -6,7 +6,6 @@ template <typename Element> class Liste {
   public :
     Noeud<Element> *tete;                       // position du premier élément
     Noeud<Element> *fin;                        // position du dernier élément
-    // Noeud<Element> *courant;                    // position de l'élément courant
 
     Liste();                                    // Constructeur
     ~Liste();                                   // Destructeur
@@ -18,6 +17,7 @@ template <typename Element> class Liste {
     Element supprimerFin();
     void supprimerParCle(Element cleRecherchee);
     bool listeVide();
+    Element laTete() const;
 };
 #endif
 
@@ -48,7 +48,6 @@ void Liste<Element>::inserer(const Element &valeurCle) {
     fin = newNoeud;
   }
   tete = newNoeud;
-  // courant = tete;
 }
 
 // insère un élément à la fin de la liste
@@ -131,11 +130,11 @@ bool Liste<Element>::listeVide(){
 template <typename Element>
 void Liste<Element>::supprimerParCle(Element cleRecherchee){
   if(!listeVide()) {
-    if (tete->cle == cleRecherche) {
+    if (tete->cle == cleRecherchee) {
       supprimer();
     }
     else {
-      Noeud* noeudActuel = tete;
+      Noeud<Element> *noeudActuel = tete;
 
       while(noeudActuel->suivant != nullptr 
             && noeudActuel->suivant->cle != cleRecherchee) {
@@ -143,7 +142,7 @@ void Liste<Element>::supprimerParCle(Element cleRecherchee){
       }
 
       if (noeudActuel->suivant != nullptr) {
-        Noeud* noeudASuprrimer = noeudActuel->suivant;
+        Noeud<Element>* noeudASupprimer = noeudActuel->suivant;
         noeudActuel->suivant = noeudASupprimer->suivant;
 
         if (noeudASupprimer == fin) {
@@ -154,4 +153,9 @@ void Liste<Element>::supprimerParCle(Element cleRecherchee){
       }
     }
   }
+}
+
+template <typename Element>
+Element Liste<Element>::laTete() const{
+  return tete->cle;
 }

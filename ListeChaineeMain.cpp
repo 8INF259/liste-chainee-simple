@@ -2,7 +2,7 @@
 #include "Liste.h" // Supondo que este arquivo contém as definições das classes Liste e Noeud
 
 int main() {
-    Liste<int> maListe;
+    ListeDouble<int> maListe;
     maListe.afficher();
     std::cout << "======"  << std::endl;
     

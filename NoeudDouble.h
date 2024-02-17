@@ -4,8 +4,8 @@
 template <typename Element> class NoeudDouble {
   public:
     Element cle;
-    NoeudDouble *suivant;
-    NoeudDouble *precedent;
+    NoeudDouble<Element> *suivant;
+    NoeudDouble<Element> *precedent;
     
     NoeudDouble() {
       suivant = nullptr;

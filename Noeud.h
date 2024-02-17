@@ -4,7 +4,7 @@
 template <typename Element> class Noeud {
   public:
     Element cle;
-    Noeud *suivant;
+    Noeud<Element> *suivant;
     
     Noeud() {
       suivant = nullptr;
